@@ -13,8 +13,8 @@ class HomeController < ApplicationController
         options.add_argument('--headless')
         driver = Selenium::WebDriver.for :chrome, options: options
         
-        id = 'r200901662sm@yahoo.co.jp'
-        password = 'riho1225'
+        id = ''
+        password = ''
         @url = 'https://www.buyma.com/login/'
         
         
