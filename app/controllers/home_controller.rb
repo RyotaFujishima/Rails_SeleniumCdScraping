@@ -15,6 +15,7 @@ class HomeController < ApplicationController
         
         id = ''
         password = ''
+        
         @url = 'https://www.buyma.com/login/'
         
         
