@@ -51,3 +51,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # gem 'capybara'
 gem 'selenium-webdriver'
 gem 'chromedriver-helper'
+
+gem 'unicorn-worker-killer'
