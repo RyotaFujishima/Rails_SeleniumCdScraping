@@ -2,3 +2,10 @@
 <br><br>
 <p><%= link_to("Neowingから取得", "/home/selen") %></p>
 <p><%= link_to("Billboradから取得", "/home/selen2") %></p>
+<hr>
+
+<h2>CSV</h2>
+<%= form_tag import_imports_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "インポート" %>
+<% end %>

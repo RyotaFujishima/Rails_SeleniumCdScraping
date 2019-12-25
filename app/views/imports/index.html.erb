@@ -1,0 +1,6 @@
+<h1>未完了一覧</h1>
+
+<% @imports.each do |import| %>
+    <%= "製品番号: #{import.product_number}" %>
+    <%= "型番: #{import.modelnumber}" %>
+<% end %>

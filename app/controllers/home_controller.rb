@@ -14,18 +14,22 @@ class HomeController < ApplicationController
       driver = Selenium::WebDriver.for :chrome, options: options
       
       array = []
-      model_numbers = ['KSCL-3112', 'UICZ-8205', 'VTCL-60466', 'QWCE-00654', 'VICL-65250', 'UICZ-8205']
+      model_numbers = ['KSCL-3112']
+      model_numbers.each do |model_number|
 
       # neowing-----------------------------------------------------------------------------
-      model_numbers.each do |model_number|
-        
+      # imports = Import.all
+      # imports.each do |import|
+
         # Neowing Top URL
         driver.get 'http://www.neowing.co.jp/' #URLを開く
         
         # 検索コードを入力し、検索結果ページに移動
         element = driver.find_element(:name, 'q')
+        # element.send_keys(import.product_number)   #CD型番
         element.send_keys(model_number)   #CD型番
-        # logger.debug("=======検索フォームにキーワードを入力しました==========")
+        # logger.debug("=======#{import.model_number} 検索==========")
+        logger.debug("=======#{model_number} 検索==========")
         
         # 検索ボタンを取得しサブミット
         element = driver.find_element(:class, 'search-button')  #検索ボタン
@@ -37,35 +41,52 @@ class HomeController < ApplicationController
         # logger.debug("=======第一要素「#{driver.current_url}」へ移動しました==========")
         
         # トラック名を取得
-        track_name = driver.find_element(:xpath, '//*[@id="content"]/div[2]/div[2]/div/h1/span').text
+        cd_name = driver.find_element(:xpath, '//*[@id="content"]/div[2]/div[2]/div/h1/span').text
         
         # トラックNoと曲名を取得
         driver.find_elements(:xpath, '//*[@class="tracklist"]/tbody/tr').each do |node|
             array << [
+              # import.model_number,
+              model_number,
+              cd_name,
               node.find_element(:css, 'td.track-no').text,
               node.find_element(:css, 'td.track-title').text,
-              track_name,
-              model_number,
-              'neo'
+              "neo",
               ]
         end
-        
+        # logger.debug("=======#{import.model_number} インポート完了==========")
+        logger.debug("=======#{model_number} インポート完了==========")
 
       end
+
+      # end
       
       driver.quit
       # neowing--------------------------------------------------------------------------------
       
-    logger.debug("==============================================")
+    logger.debug("=====================保存=========================")
       array.each do |i|
-        logger.debug("#{i[0]}) #{i[1]} no:#{i[3]} soce:#{i[4]} ")
+        logger.debug("#{i[2]}) タイトル:#{i[3]} : #{i[1]}" )
+        # 保存アクションの追加
+        @scraping = Scraping.create!(
+          model_number: i[0],
+          name: i[1],
+          track_number: i[2],
+          title: i[3],
+          source: i[4], 
+          done: false
+          )
       end
-    logger.debug("==============================================")
+    logger.debug("=====================保存完了=========================")
   end
   
   def selen2
-      
-
+    
+      imports = Import.all
+      imports.each do |import|
+        logger.debug("#{import.product_number}")
+      end
+      redirect_to root_path
   end
   
 end

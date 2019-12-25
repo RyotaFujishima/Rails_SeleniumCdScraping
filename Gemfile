@@ -53,3 +53,4 @@ gem 'selenium-webdriver'
 gem 'chromedriver-helper'
 
 gem 'unicorn-worker-killer'
+gem 'roo'

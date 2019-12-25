@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  product_number: MyString
+  model_number: MyString
+  name: MyString
+  track_number: 1
+  title: 1
+  source: MyString
+
+two:
+  product_number: MyString
+  model_number: MyString
+  name: MyString
+  track_number: 1
+  title: 1
+  source: MyString

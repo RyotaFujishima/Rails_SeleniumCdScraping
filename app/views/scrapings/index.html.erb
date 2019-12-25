@@ -1,0 +1,5 @@
+<h1>スクレイピング一覧</h1>
+
+<% @scrapings.each do |scraping| %>
+    <p><%= "#{scraping.track_number}) #{scraping.title} :#{scraping.model_number}" %></p>
+<% end %>
