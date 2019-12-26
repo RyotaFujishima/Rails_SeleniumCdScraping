@@ -3,19 +3,20 @@
 <hr>
 <table  border="2" rules="all" class="table">
     <tr>
+      <th class="center w10">番号</th>
       <th class="center w10">型番</th>
-      <th class="center w10">トラックNo</th>
-      <th class="center w30">曲名</th>
-      <th class="center w40">ジャケット名</th>
+      <!--<th class="center w10">トラックNo</th>-->
+      <!--<th class="center w30">曲名</th>-->
+      <th class="center w30">ジャケット名</th>
       <th class="center w10">取得ソース</th>
     </tr>
   <% n = 1 %>
   <% @scrapings.each do |scraping| %>
     <tr>
-      <!--<td class="center data">%= "#{n}" %></td>-->
+      <td class="center data"><%= "#{n}" %></td>
       <td class="center w10"><%= "#{scraping.model_number}" %></td>
-      <td class="center w10"><%= "#{scraping.track_number}" %></td>
-      <td class="center w30"><%= "#{scraping.title}" %></td>
+      <!--<td class="center w10">%= "#{scraping.track_number}" %></td>-->
+      <!--<td class="center w30">%= "#{scraping.title}" %></td>-->
       <td class="center w40"><%= "#{scraping.name}" %></td>
       <td class="center w10"><%= "#{scraping.source}" %></td>
     </tr>

@@ -31,6 +31,15 @@
   border: 1px solid black;
 }
 
+.red {
+  color: red;
+  font-weight: bold;
+}
+
+.blue {
+  color: blue;
+}
+
 .w20 {
   width: 20%;
 }

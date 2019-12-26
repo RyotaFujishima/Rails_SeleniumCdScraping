@@ -1,8 +1,8 @@
-<h1>インポート一覧</h1>
+<h1>未完了一覧</h1>
 <p><%= link_to("トップに戻る", root_path) %></p>
 <hr>
+<p><%= link_to("インポート一覧", "/imports") %></p>
 <p><%= link_to("完了一覧", "/imports/done") %></p>
-<p><%= link_to("未完了一覧", "/imports/non_done") %></p>
 <hr>
 <table  border="2" rules="all" class="table">
     <tr>
@@ -16,7 +16,7 @@
     <tr>
       <td class="center w20"><%= "#{n}" %></td>
       <td class="center w30"><%= "#{import.product_number}" %></td>
-      <td class="center w30"><%= link_to("#{import.model_number}", "/scrapings/#{import.model_number}") %></td>
+      <td class="center w30"><%= "#{import.model_number}" %></td>
       <% if import.done == true %>
         <td class="center w20 blue"><%= "○" %></td>
       <% end %>

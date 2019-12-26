@@ -16,4 +16,12 @@ class ImportsController < ApplicationController
     @imports = Import.all
     @n = 1
   end
+  
+  def done
+    @imports = Import.where(done: true)
+  end
+  
+  def non_done
+    @imports = Import.where(done: false)
+  end
 end

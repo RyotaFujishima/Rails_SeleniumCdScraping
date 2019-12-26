@@ -4,5 +4,6 @@ class ScrapingsController < ApplicationController
   end
 
   def show
+    @scrapings = Scraping.where(model_number: params[:model_number])
   end
 end
