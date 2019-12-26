@@ -1,0 +1,23 @@
+<h1>Neowing未完了一覧</h1>
+<p><%= link_to("トップに戻る", root_path) %></p>
+<hr>
+<table  border="2" rules="all" class="table">
+    <tr>
+      <th class="center w20">番号</th>
+      <th class="center w30">製品番号</th>
+      <th class="center w30">型番</th>
+      <th class="center w20">完了</th>
+    </tr>
+  <% n = 1 %>
+  <% @imports.each do |import| %>
+    <tr>
+      <td class="center w20"><%= "#{n}" %></td>
+      <td class="center w30"><%= "#{import.product_number}" %></td>
+      <td class="center w30"><%= "#{import.model_number}" %></td>
+      <td class="center w20"><%= "#{import.done}" %></td>
+    </tr>
+    <% n += 1 %>
+  <% end %>
+</table>
+<hr>
+<p><%= link_to("トップに戻る", root_path) %></p>

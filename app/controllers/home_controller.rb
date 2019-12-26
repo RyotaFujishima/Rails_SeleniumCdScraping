@@ -90,12 +90,7 @@ class HomeController < ApplicationController
   end #selen
   
   def selen2
-    
-      imports = Import.all
-      imports.each do |import|
-        logger.debug("#{import.product_number}")
-      end
-      redirect_to root_path
+      @imports = Import.where(done: false)
   end
   
 end
