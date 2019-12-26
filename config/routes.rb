@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  get 'scrapings/index'
+  # get 'scrapings/index'
 
-  get 'scrapings/show'
+  # get 'scrapings/show'
 
-  get 'imports/import'
+  # get 'imports/import'
 
-  get 'imports/export'
+  # get 'imports/export'
 
   root 'home#top'
   get 'home/selen2' => 'home#selen2'

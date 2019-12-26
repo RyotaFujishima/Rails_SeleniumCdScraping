@@ -12,6 +12,8 @@ class ImportsController < ApplicationController
   end
   
   def index
-    @imports = Import.where(done: false)
+    # @imports = Import.where(done: false)
+    @imports = Import.all
+    @n = 1
   end
 end

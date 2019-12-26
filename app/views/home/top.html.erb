@@ -4,8 +4,13 @@
 <p><%= link_to("Billboradから取得", "/home/selen2") %></p>
 <hr>
 
-<h2>CSV</h2>
+<h2>画面一覧</h2>
+<p><%= link_to("Scraping完了一覧", "/scrapings") %></p>
+<p><%= link_to("インポート一覧", "/imports") %></p>
+<hr>
+<h2>CSV インポート</h2>
 <%= form_tag import_imports_path, multipart: true do %>
   <%= file_field_tag :file %>
   <%= submit_tag "インポート" %>
 <% end %>
+
