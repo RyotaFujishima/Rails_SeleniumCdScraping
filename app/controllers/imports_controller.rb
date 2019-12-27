@@ -1,18 +1,14 @@
 class ImportsController < ApplicationController
   def import
-    require "csv"
-    
-    # ファイルから1行づつ読み込む
-    CSV.foreach("path/to/file.csv") do |row|
-      logger.debug("==========#{row}============")
-    end
+    Import.import(params[:file])
+    logger.debug("===========CSVを取得しました============")
+    redirect_to "/imports"
   end
 
   def export
   end
   
   def index
-    # @imports = Import.where(done: false)
     @imports = Import.all
     @n = 1
   end

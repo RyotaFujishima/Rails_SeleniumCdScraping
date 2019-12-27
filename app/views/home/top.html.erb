@@ -1,11 +1,12 @@
 <h1>Selen Top</h1>
 <br><br>
-<p><%= link_to("Neowingから取得", "/home/selen") %></p>
-<p><%= link_to("Billboradから取得", "/home/selen2") %></p>
+<p><%= link_to("全てのデータを取得(Neowing)", "/home/selen", data: {confirm: "実行しますか？"}) %></p>
+<!--<p>%= link_to("Tower Recordから取得", "/home/selen2") %></p>-->
+<!--<p>%= link_to("Joshinから取得", "/home/selen3") %></p>-->
 <hr>
 
 <h2>画面一覧</h2>
-<p><%= link_to("Scraping完了一覧", "/scrapings") %></p>
+<p><%= link_to("取得完了一覧", "/scrapings") %></p>
 <p><%= link_to("インポート一覧", "/imports") %></p>
 <hr>
 <h2>CSV インポート</h2>
@@ -13,4 +14,6 @@
   <%= file_field_tag :file %>
   <%= submit_tag "インポート" %>
 <% end %>
-
+<hr>
+<h2>CSV エクスポート(全件)</h2>
+<%= link_to("csv出力", "/scrapings/csv_export" , format: :csv) %>
